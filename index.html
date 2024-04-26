@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golf wear web</title>
+    <!-- 슬라이더 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- 제이쿼리 -->
+    <script src="jquery-3.7.1.min.js"></script>
+    <!-- 스와이퍼 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <!-- font -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./font/OTF/MaruBuri-SemiBold.otf"
+    />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/22c7ae5cd0.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- slick slider -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./slick-1.8.1/slick/slick.css"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="./slick-1.8.1/slick/slick-theme.css" />   -->
+    <script
+      type="text/javascript"
+      src="./slick-1.8.1/slick/slick.min.js"
+    ></script>
+    <!-- font 적용 -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+
+    <script>
+      $(document).ready(function () {
+        // scroll시 header 축소 효과
+
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 0) {
+            $("header").css({
+              background: "rgba(242, 230, 226, 0.9)",
+            });
+          } else {
+            $("header").css({
+              background: "#f5f1f1",
+            });
+          }
+        });
+
+        // main 슬라이더
+
+        var swiper = new Swiper(".mySwiper", {
+          spaceBetween: 30,
+          effect: "fade",
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+
+        // arrival 슬라이더
+        $(".arrival_wrapper").slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          arrows: false,
+          dots: true,
+        });
+
+        // top 버튼
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 300) {
+            $(".topBtn").show();
+          } else {
+            $(".topBtn").hide();
+          }
+        });
+        $(".topBtn").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 400);
+          return false;
+        });
+
+        // 태블릿 크기에서 버거바 누르면 메뉴 토글
+        $(".header_menu_toggle").click(function () {
+          $(".small_menu").stop().slideToggle("slow");
+        });
+
+        $(".header_menu_toggle").click(function () {
+          $(".small_menu").css({
+            opacity: "1",
+          });
+        });
+
+        //search 아이콘 클릭 시 hiddenSearch 보임
+        $("#searchIcon").click(function () {
+          $(".hiddenSearch").fadeIn("slow");
+        });
+
+        $("#close").click(function () {
+          $(".hiddenSearch").fadeOut("slow");
+        });
+
+        // heart,shoppingbag 아이콘 클릭 시 alert
+        $("#heartIcon").click(function () {
+          alert("로그인 후 이용가능합니다");
+        });
+
+        $("#shoppingbagIcon").click(function () {
+          alert("로그인 후 이용가능합니다");
+        });
+      }); //jquery end
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <!-- 상단의 아이콘들 search,shopping,personal,menu-bar -->
+
+      <div class="header_logo">
+        <a href="index.html"
+          ><img src="./img/LOGOTEST.svg" alt="골프웨어 웹페이지 로고"
+        /></a>
+      </div>
+
+      <!-- 상단의 메뉴바 -->
+      <div class="header_menu">
+        <ul class="header_menu_ul">
+          <li><a href="./html/men.html">MEN</a></li>
+
+          <li><a href="./html/women.html">WOMEN</a></li>
+
+          <li><a href="./html/accessories.html">ACCESSORIES</a></li>
+        </ul>
+      </div>
+
+      <div class="icons">
+        <ul class="icons_ul">
+          <li>
+            <a href="#"><i class="fas fa-search" id="searchIcon"></i></a>
+          </li>
+          <li>
+            <a href="./html/login.html"
+              ><i class="fas fa-heart" id="heartIcon"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./html/login.html"><i class="fas far fa-user"></i></a>
+          </li>
+          <li>
+            <a href="./html/login.html"
+              ><i class="fas fas fa-shopping-bag" id="shoppingbagIcon"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="header_menu_toggle">
+        <!-- 버거 아이콘 -->
+        <i class="fas fa-bars burger"></i>
+      </div>
+
+      <!-- 태블릿,핸드폰사이즈에서 보일메뉴 -->
+      <div class="small_menu">
+        <ul class="icon_menu">
+          <li>
+            <a href="#"><i class="fas fa-search" id="searchIcon"></i></a>
+          </li>
+          <li>
+            <a href="./html/login.html"
+              ><i class="fas fa-heart" id="heartIcon"></i
+            ></a>
+          </li>
+          <li>
+            <a href="./html/login.html"><i class="fas far fa-user"></i></a>
+          </li>
+          <li>
+            <a href="./html/login.html"
+              ><i class="fas fas fa-shopping-bag" id="shoppingbagIcon"></i
+            ></a>
+          </li>
+        </ul>
+        <ul class="cattegory_menu">
+          <li><a href="./html/men.html">MEN</a></li>
+
+          <li><a href="./html/women.html">WOMEN</a></li>
+
+          <li><a href="./html/accessories.html">ACCESSORIES</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="hiddenSearch">
+      <i class="fas far fa-window-close" id="close"></i>
+      <div class="searchInput">
+        <input type="search" autofocus />
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+
+    <!-- 슬라이더 -->
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper main_slide_wrapper">
+        <div class="swiper-slide main_slide">
+          <img
+            src="./img/maintest5.jpg"
+            alt="첫번째 슬라이드 골프웨어를 입고있는 두명의 모델 이미지"
+          />
+
+          <div class="first_txt">
+            <h1>Discover the Latest Golf Trends</h1>
+            <button id="slider_btn1">DISCOVER NOW</button>
+          </div>
+        </div>
+        <div class="swiper-slide main_slide">
+          <img src="./img/maintest2.jpg" alt="두번째 파란색배경 이미지" />
+          <div class="second_txt">
+            <h1>Stand Out as a Golfer with Premium Apparel</h1>
+          </div>
+        </div>
+        <div class="swiper-slide main_slide">
+          <img
+            src="./img/maintest3.jpg"
+            alt="세번째 슬라이드 골프공을 들고있는 사람의 손 이미지"
+          />
+          <div class="third_txt">
+            <h1>Perfect Harmony of Comfort and Style</h1>
+            <button id="slider_btn2">DISCOVER NOW</button>
+          </div>
+        </div>
+        <div class="swiper-slide main_slide">
+          <img
+            src="./img/maintest4.jpg"
+            alt="네번째 슬라이드 골프장과 골프신발 이미지"
+          />
+          <div class="forth_txt">
+            <h1>Transform Your Game <br />with a Better Wardrobe</h1>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- new arrival -->
+
+    <div class="arrival_container">
+      <h1 class="arrival_title fadein">NEW ARRIVAL</h1>
+      <div class="swiper arrival_swiper fadein">
+        <div class="swiper-wrapper arrival_wrapper">
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img src="./img/swiper1.jpg" alt="WOMEN AIR CIRCUIT T-SHIRT BLK"
+            /></a>
+
+            <div class="arrival_color_wrap">
+              <div class="arrival_color"></div>
+              <div class="arrival_color white_div"></div>
+              <div class="arrival_color powderblue_div"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>
+                WOMEN AIR CIRCUIT<br />
+                T-SHIRT
+              </p>
+              <p>555,000원</p>
+            </div>
+          </div>
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img
+                src="./img/swiper2.jpg"
+                alt="WOMEN AIR CIRCUIT T-SHIRT WHITE"
+            /></a>
+
+            <div class="arrival_color_wrap">
+              <div class="arrival_color"></div>
+              <div class="arrival_color white_div"></div>
+              <div class="arrival_color powderblue_div"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>
+                WOMEN AIR CIRCUIT<br />
+                T-SHIRT
+              </p>
+              <p>555,000원</p>
+            </div>
+          </div>
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img
+                src="./img/swiper3.jpg"
+                alt="WOMEN DANTE'S INFERNO PATTER SKIRT BLUE"
+            /></a>
+            <div class="arrival_color_wrap">
+              <div class="arrival_color khaki_div color_div_marginR"></div>
+              <div class="arrival_color"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>
+                WOMEN DANTE'S INFERNO <br />
+                PATTERN SKIRT
+              </p>
+              <p>415,000원</p>
+            </div>
+          </div>
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img
+                src="./img/swiper4.jpg"
+                alt="WOMEN DANTE'S INFERNO PATTER SKIRT BLK"
+            /></a>
+            <div class="arrival_color_wrap">
+              <div class="arrival_color"></div>
+              <div class="arrival_color khaki_div color_div_marginL"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>WOMEN DANTE'S INFERNO <br />PATTERN SKIRT</p>
+              <p>415,000원</p>
+            </div>
+          </div>
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img
+                src="./img/swiper5.jpg"
+                alt="MEN AIR CIRCUT TECH HOODY JACKET BLUE"
+            /></a>
+            <div class="arrival_color_wrap">
+              <div class="arrival_color powderblue_div color_div_marginR"></div>
+              <div class="arrival_color"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>MEN AIR CIRCUT TECH <br />HOODY JACKET</p>
+              <p>598,000원</p>
+            </div>
+          </div>
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img
+                src="./img/swiper6.jpg"
+                alt="MEN AIR CIRCUT TECH HOODY JACKET BLK"
+            /></a>
+            <div class="arrival_color_wrap">
+              <div class="arrival_color"></div>
+              <div class="arrival_color white_div color_div_marginL"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>MEN D-RANGE ROUND <br />T-SHIRT</p>
+              <p>258,000원</p>
+            </div>
+          </div>
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img
+                src="./img/swiper7.jpg"
+                alt="MEN D-RANGE ROUND T-SHIRT WHITE"
+            /></a>
+            <div class="arrival_color_wrap">
+              <div class="arrival_color"></div>
+              <div class="arrival_color white_div color_div_marginL"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>MEN D-RANGE ROUND <br />T-SHIRT</p>
+              <p>258,000원</p>
+            </div>
+          </div>
+          <div class="swiper-slide arrival_slide">
+            <a href="#"
+              ><img src="./img/swiper8.jpg" alt="MEN D-RANGE ROUND T-SHIRT BLK"
+            /></a>
+            <div class="arrival_color_wrap">
+              <div class="arrival_color"></div>
+              <div class="arrival_color white_div color_div_marginL"></div>
+            </div>
+            <div class="arrival_txt">
+              <p>
+                WOMEN AIR CIRCUIT<br />
+                T-SHIRT
+              </p>
+              <p>555,000원</p>
+            </div>
+          </div>
+        </div>
+        <div class=".swiper-pagination"></div>
+      </div>
+    </div>
+    <!-- arrival end -->
+
+    <!-- topseller section -->
+    <div class="topseller_wrap">
+      <div class="topseller_banner fadein">
+        <a href="#">
+          <img
+            src="./img/topseller_bannerImg.jpg"
+            alt="TOP SELLER,남자모델 배너 이미지"
+        /></a>
+      </div>
+
+      <div class="topseller_imgBox_wrap fadein">
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb1.jpg"
+              alt="WOMEN FLEX MOTION ESSENTIAL CARDIGAN IVORY"
+              class="thumbImg"
+          /></a>
+
+          <a href="#">
+            <img
+              src="./img/bannerthumbback1.jpg"
+              alt="WOMEN FLEX MOTION ESSENTIAL CARDIGAN IVORY Back"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor white_div color_div_marginR"></div>
+            <div class="bannerColor"></div>
+          </div>
+          <p class="banner_txt">WOMEN FLEX MOTION ESSENTIAL CARDIGAN</p>
+          <p class="banner_pricetxt">515,000원</p>
+        </div>
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb2.jpg"
+              alt="WOMEN SUMMER ESSENTIAL PLEATS SKIRT WHITE"
+              class="thumbImg"
+          /></a>
+          <a href="#">
+            <img
+              src="./img/bannerthumbback2.jpg"
+              alt="WOMEN SUMMER ESSENTIAL PLEATS SKIRT WHITE BACK"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor white_div color_div_marginR"></div>
+            <div class="bannerColor"></div>
+          </div>
+          <p class="banner_txt">WOMEN SUMMER ESSENTIAL PLEATS SKIRT</p>
+          <p class="banner_pricetxt">415,000원</p>
+        </div>
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb3.jpg"
+              alt="MEN AERO FIT SMOG ACCORDIO T-SHIRT BLK"
+              class="thumbImg"
+          /></a>
+          <a href="#">
+            <img
+              src="./img/bannerthumbback3.jpg"
+              alt="MEN AERO FIT SMOG ACCORDIO T-SHIRT BLK BACK"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor white_div"></div>
+            <div class="bannerColor"></div>
+            <div class="bannerColor khaki_div"></div>
+          </div>
+          <p class="banner_txt">MEN AERO FIT SMOG ACCORDIO T-SHIRT</p>
+          <p class="banner_pricetxt">438,000원</p>
+        </div>
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb4.jpg"
+              alt="MEN ACCORDIO COLLAR T-SHIRT 5 STRIPE WHITE"
+              class="thumbImg"
+          /></a>
+          <a href="#">
+            <img
+              src="./img/bannerthumbback4.jpg"
+              alt="MEN ACCORDIO COLLAR T-SHIRT 5 STRIPE WHITE BACK"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor white_div"></div>
+            <div class="bannerColor"></div>
+            <div class="bannerColor khaki_div"></div>
+          </div>
+          <p class="banner_txt">MEN ACCORDIO COLLAR T-SHIRT 5 STRIPE</p>
+          <p class="banner_pricetxt">438,000원</p>
+        </div>
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb5.jpg"
+              alt="MEN FLASH SMOG ACCORDIO HIGH NECK T-SHIRT BLK"
+              class="thumbImg"
+          /></a>
+          <a href="#">
+            <img
+              src="./img/bannerthumbback5.jpg"
+              alt="MEN FLASH SMOG ACCORDIO HIGH NECK T-SHIRT BLK BACK"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor white_div"></div>
+            <div class="bannerColor"></div>
+            <div class="bannerColor khaki_div"></div>
+          </div>
+          <p class="banner_txt">MEN FLASH SMOG ACCORDIO HIGH NECK T-SHIRT</p>
+          <p class="banner_pricetxt">438,000원</p>
+        </div>
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb6.jpg"
+              alt="WOMEN DUAL FIT PATTERN PADDING CULOTTE BLK"
+              class="thumbImg"
+          /></a>
+          <a href="#">
+            <img
+              src="./img/bannerthumbback6.jpg"
+              alt="WOMEN DUAL FIT PATTERN PADDING CULOTTE BLK BACK"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor white_div"></div>
+            <div class="bannerColor"></div>
+            <div class="bannerColor khaki_div"></div>
+          </div>
+          <p class="banner_txt">WOMEN DUAL FIT PATTERN PADDING CULOTTE</p>
+          <p class="banner_pricetxt">595,000원</p>
+        </div>
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb7.jpg"
+              alt="WOMEN AIR CIRCUIT AIR HOLE HIVE SWEATER"
+              class="thumbImg"
+          /></a>
+          <a href="#">
+            <img
+              src="./img/bannerthumbback7.jpg"
+              alt="WOMEN AIR CIRCUIT AIR HOLE HIVE SWEATER BACK"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor white_div color_div_marginR"></div>
+            <div class="bannerColor"></div>
+          </div>
+          <p class="banner_txt">WOMEN AIR CIRCUIT AIR HOLE HIVE SWEATER</p>
+          <p class="banner_pricetxt">495,000원</p>
+        </div>
+        <div class="topseller_imgBox">
+          <a href="#">
+            <img
+              src="./img/bannerthumb8.jpg"
+              alt="WOMEN AIR CIRCUIT FLARE SKIRT"
+              class="thumbImg"
+          /></a>
+          <a href="#">
+            <img
+              src="./img/bannerthumbback8.jpg"
+              alt="WOMEN AIR CIRCUIT FLARE SKIRT BACK"
+              class="hiddenthumb"
+          /></a>
+          <div class="banner_color">
+            <div class="bannerColor powderblue_div"></div>
+            <div class="bannerColor white_div"></div>
+            <div class="bannerColor"></div>
+          </div>
+          <p class="banner_txt">WOMEN AIR CIRCUIT FLARE SKIRT</p>
+          <p class="banner_pricetxt">493,000원</p>
+        </div>
+      </div>
+    </div>
+    <!-- banner end -->
+
+    <!-- video section -->
+
+    <div class="video_container">
+      <video
+        src="./video/mainvideo1.mp4"
+        alt="골프모델 워킹 비디오"
+        autoplay
+        muted
+        loop
+        class="main_video"
+      ></video>
+    </div>
+
+    <!-- Instagram section -->
+
+    <h1 class="sns_title fadein">INSTAGRAM</h1>
+    <p class="sns_title fadein">@g&fgolf_official</p>
+
+    <div class="insta_wrap">
+      <div class="insta_imgBox fadein">
+        <img src="./img/instaImg1.png" alt="" class="instaImg" />
+        <div class="insta_hiddenBox">
+          <i class="fas fab fa-twitter"></i>
+          <i class="fas fab fa-facebook-square"></i>
+          <i class="fas fab fa-instagram-square"></i>
+        </div>
+      </div>
+
+      <div class="insta_imgBox fadein">
+        <img src="./img/instaImg2.png" alt="" class="instaImg" />
+        <div class="insta_hiddenBox">
+          <i class="fas fab fa-twitter"></i>
+          <i class="fas fab fa-facebook-square"></i>
+          <i class="fas fab fa-instagram-square"></i>
+        </div>
+      </div>
+
+      <div class="insta_imgBox fadein">
+        <img src="./img/instaImg3.png" alt="" class="instaImg" />
+        <div class="insta_hiddenBox">
+          <i class="fas fab fa-twitter"></i>
+          <i class="fas fab fa-facebook-square"></i>
+          <i class="fas fab fa-instagram-square"></i>
+        </div>
+      </div>
+
+      <div class="insta_imgBox fadein">
+        <img src="./img/instaImg4.png" alt="" class="instaImg" />
+        <div class="insta_hiddenBox">
+          <i class="fas fab fa-twitter"></i>
+          <i class="fas fab fa-facebook-square"></i>
+          <i class="fas fab fa-instagram-square"></i>
+        </div>
+      </div>
+
+      <div class="insta_imgBox fadein">
+        <img src="./img/instaImg5.png" alt="" class="instaImg" />
+        <div class="insta_hiddenBox">
+          <i class="fas fab fa-twitter sns_icons"></i>
+          <i class="fas fab fa-facebook-square sns_icons"></i>
+          <i class="fas fab fa-instagram-square sns_icons"></i>
+        </div>
+      </div>
+    </div>
+    <!-- insta end -->
+
+    <!-- footer -->
+    <footer>
+      <div class="foot_Layer1">
+        <ul class="footerUl">
+          <li><a href="#">회사소개</a></li>
+          <li><a href="#">이용약관</a></li>
+          <li><a href="#">개인정보취급방침</a></li>
+          <li><a href="#">이용안내</a></li>
+          <li><a href="#">공지사항</a></li>
+        </ul>
+
+        <div class="footer_icons">
+          <ul class="footer_icons_ul">
+            <li><i class="fas fab fa-twitter"></i></li>
+            <li><i class="fas fab fa-facebook-square"></i></li>
+            <li><i class="fas fab fa-instagram"></i></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot_Layer2">
+        <div class="foot_Lcontent">
+          <h5>CS CENTER</h5>
+          <br />
+          <p>@G&F 카카오 채널을 추가하시면</p>
+          <p>상담톡으로 연결됩니다.</p>
+          <br />
+          <p>평일 11:00 - 17:00</p>
+          <p>점심 12:30 - 13:30</p>
+          <p>토요일 일요일 공휴일 휴무</p>
+        </div>
+
+        <div class="foot_Rcontent">
+          <h5>COMPANY INFO</h5>
+          <br />
+          <p>COMPANY : 주식회사 G&F</p>
+          <p>ADDRESS: KOREA</p>
+          <p>E-MAIL : ksl2560@naver.com</p>
+          <p>COPYRIGHT &copy; G&F GOLF. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- top 버튼 -->
+    <a href="#" class="topBtn">
+      <span>TOP</span>
+    </a>
+
+    <script>
+      // 페이지 열릴때 fade 효과
+      document.addEventListener("DOMContentLoaded", function () {
+        document.body.style.opacity = 1;
+      });
+
+      // 스크롤시 부드럽게하기
+      window.scroll({
+        top: 0,
+        left: 100,
+        behavior: "smooth",
+      });
+
+      /* 메인페이지 스크롤 이벤트 요소*/
+      const animateFade = (entries, obs) => {
+        // 여러가지 요소가 있으므로 forEach로 각각에 기능 추가
+        entries.forEach((entry) => {
+          //관찰요소가 영역안에 들어오면 animate 추가
+          if (entry.isIntersecting) {
+            entry.target.animate(
+              {
+                opacity: [0, 1],
+                filter: ["blur(.4rem)", "blur(0)"],
+                translate: ["0 4rem", 0],
+              },
+              {
+                duration: 2000,
+                easing: "ease",
+                fill: "forwards",
+              }
+            );
+            //스크롤 이벤트가 표시된 후에는 관찰 중지
+            obs.unobserve(entry.target);
+          }
+        });
+      };
+
+      // 관찰 설정
+      const fadeObserver = new IntersectionObserver(animateFade);
+
+      // html내의 fadein 을 찾아 각각 관찰하라고 입력함
+      const fadeElements = document.querySelectorAll(".fadein");
+      fadeElements.forEach((fadeElement) => {
+        fadeObserver.observe(fadeElement);
+      });
+
+      // 동영상 스크롤시 width 10%였다가 100%로 설정하는 스크롤이벤트
+      // 걸어오는 동영상을 더 임펙트있게 하기위해 적용
+
+      window.addEventListener("scroll", function () {
+        const video = document.querySelector(".video_container video");
+        const scrollPercent =
+          window.scrollY /
+          (document.documentElement.scrollHeight - window.innerHeight);
+        const newWidth = scrollPercent * 100;
+        video.style.width = `${newWidth}vw`;
+        video.style.height = `${newWidth}vh`;
+      });
+
+      // 스크롤 이벤트 발생 여부를 나타내는 변수
+      let scrolled = false;
+
+      window.addEventListener("scroll", function () {
+        if (!scrolled) {
+          // 스크롤 이벤트가 발생했음을 표시
+          scrolled = true;
+          const mainVideo = document.querySelector(".main_video");
+          mainVideo.classList.add("video_large");
+        }
+      });
+    </script>
+  </body>
+</html>
